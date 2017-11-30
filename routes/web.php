@@ -17,3 +17,7 @@ use App\Link;
 Route::get('/', 'LinksController@index');
 
 Route::get('/generate', 'LinksController@generateLinks');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
