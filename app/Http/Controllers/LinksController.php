@@ -157,6 +157,11 @@ class LinksController extends Controller
             unset($validatedlinks[$count]);
           }
 
+          // sometimes we get here and links have only spaces
+          if(preg_match('/^\s+$/', $link['title'])) == 1){
+              unset($validatedlinks[$count]);
+          }
+
           $count = $count + 1;
 
         }
