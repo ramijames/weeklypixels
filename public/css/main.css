@@ -1,4 +1,30 @@
-.infinite-scroll li {
-  padding:40px;
-  min-height: 240px;
+.infinite-scroll .single-link {
+
+}
+
+.infinite-scroll .panel-default > .panel-heading {
+    color: #777777;
+    background-color: rgba(255,255,255,0.12);
+    border-color: transparent;
+    overflow: auto;
+    padding: 10px 15px 0;
+}
+
+.infinite-scroll .panel-default {
+    border-color: transparent;
+}
+
+.infinite-scroll .panel-body {
+    padding: 5px 15px 15px;
+}
+
+.infinite-scroll .panel-body a {
+  font-size:24px;
+}
+
+.so-sad {
+  text-align: center;
+  font-size:18px;
+  margin:40px 80px 120px;
+  color:#797979;
 }

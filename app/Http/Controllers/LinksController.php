@@ -17,9 +17,9 @@ class LinksController extends Controller
     public function index()
     {
         $sites = Site::all();
-        $links = Link::orderBy('created_at', 'DESC')->get();
+        $links = Link::orderBy('created_at', 'DESC')->paginate(10);
 
-        return view('links.show', compact('links','sites'));
+        return view('home', compact('links','sites'));
 
     }
 

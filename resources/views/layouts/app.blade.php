@@ -73,12 +73,14 @@
         </nav>
 
         <div class="container">
-        @yield('content')
+            @yield('content')
         </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="{{ asset('js/infinite-scroll.pkgd.min.js') }}"></script>
+
+    <script src="https://use.fontawesome.com/bcacaab594.js"></script>
 
     <script type="text/javascript">
         $('ul.pagination').hide();
