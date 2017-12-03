@@ -1,3 +1,77 @@
+body {
+  background-color:#ffffff;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* typography */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Roboto', sans-serif;
+}
+
+/* links, buttons */
+
+a,
+a:focus,
+a:hover {
+    color: #111111;
+    text-decoration: none;
+}
+
+.btn {
+  min-width: 34px;
+  font-family: 'Roboto Mono', monospace;
+}
+
+/* header */
+
+.navbar-default {
+    background-color: #111111;
+    border-color: #111111;
+}
+
+.navbar-default .navbar-brand {
+    color: #ffffff;
+}
+
+.nav > li, .nav > li > a {
+    color: #ffffff !important;
+}
+
+/* infinite scroll */
+
+.infinite-scroll .set-date {
+  font-family: 'Roboto Mono', monospace;
+  color:#eee;
+  text-align:right
+}
+
+.set-date .the-day {
+  font-size: 33px;
+  font-weight: bold;
+  position: absolute;
+  right: 10px;
+  letter-spacing: 10px;
+  top: 20px;
+}
+
+.set-date .the-date {
+  font-size: 18px;
+  font-weight: bold;
+  position: absolute;
+  right: 19px;
+  top: 10px;
+}
+
+.daily-set {
+  clear:both;
+}
+
 .infinite-scroll .single-link {
 
 }
@@ -12,7 +86,11 @@
 
 .infinite-scroll .panel-default {
     border-color: transparent;
-    padding: 15px;
+    padding: 15px 0;
+    background: transparent;
+    box-shadow: none;
+    border-bottom: 1px solid rgba(0,0,0,0);
+    margin:0 0 10px;
 }
 
 .infinite-scroll .panel-body {
@@ -20,16 +98,53 @@
 }
 
 .infinite-scroll .panel-body a {
-  font-size:24px;
+  font-size:18px;
+  font-family: 'Roboto Mono', monospace;
+  border-bottom: 1px solid rgba(0,0,0,0.12)
 }
 
+    .infinite-scroll .panel-body a:hover {
+      border-bottom: 1px solid rgba(0,0,0,0.72)
+    }
+
 .infinite-scroll .panel-footer {
-    padding: 10px 0 0 0;
-    background-color: #fff;
-    border-top: 1px solid rgba(47, 150, 210, 0.10980392156862745);
-    border-bottom-right-radius: 3px;
-    border-bottom-left-radius: 3px;
+    padding: 0;
+    background-color: transparent;
+    border-top: 0px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    overflow:auto
 }
+
+  .infinite-scroll .panel-footer .btn {
+      border-color:transparent !important;
+      border-radius:0 !important;
+      color:#111111;
+  }
+
+.link-rating {
+  float: left;
+  min-width: 30px;
+  text-align: center;
+  line-height: 30px;
+  background: #111111;
+  color: #ffffff;
+  font-size:18px;
+  font-family: 'Roboto Mono', monospace;
+  border-radius: 32px;
+  margin-right: 12px;
+}
+
+.infinite-scroll .link-source a {
+  font-family: 'Roboto Mono', monospace;
+  font-weight: bold;
+  color:#eee !important;
+}
+
+  .infinite-scroll .link-source a:hover {
+  }
+
+/* footer */
 
 .so-sad {
   text-align: center;
