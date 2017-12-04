@@ -45,6 +45,10 @@ a:hover {
 
 /* infinite scroll */
 
+.infinite-scroll {
+  overflow: auto;
+}
+
 .infinite-scroll .set-date {
   font-family: 'Roboto Mono', monospace;
   color:#eee;
@@ -149,6 +153,7 @@ a:hover {
 .so-sad {
   text-align: center;
   font-size:18px;
-  margin:40px 80px 120px;
+  margin:120px 40px;
   color:#797979;
+  overflow:auto;
 }

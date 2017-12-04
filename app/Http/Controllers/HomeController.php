@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Site;
 use App\Link;
+use App\Set;
 
 class HomeController extends Controller
 {
@@ -26,8 +27,10 @@ class HomeController extends Controller
     public function index()
     {
         $sites = Site::all();
+        $sets = Set::all();
         $links = Link::orderBy('created_at', 'DESC')->paginate(10);
 
-        return view('home', compact('links','sites'));
+
+        return view('home', compact('links','sites', 'sets'));
     }
 }

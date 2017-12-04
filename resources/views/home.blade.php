@@ -9,48 +9,62 @@
         </div>
     @endif
 
-    @foreach($links as $link)
+    @foreach($sets as $set)
 
-      <div class="daily-set">
+      @if (count($set->links))
 
-        <div class="col-md-3 set-date">
-          <span class="the-date">{{ $link->created_at->format('d.m') }}</span>
-          <span class="the-day">{{ $link->created_at->formatLocalized('%A') }}</span>
+        <div class="daily-set">
+
+            <div class="col-md-3 set-date">
+              <span class="the-date">{{ $set->created_at->format('d.m') }}</span>
+              <span class="the-day">{{ $set->created_at->formatLocalized('%A') }}</span>
+            </div>
+
+            <div class="col-md-8">
+
+              @foreach($set->links as $link)
+
+                <div class="panel panel-default single-link">
+                  <div class="panel-body"><a href="{{ $link->address }}">
+                    <div class="link-rating">
+                      {{ $link->rating }}
+                    </div>
+                    {{ $link->title }}</a>
+                  </div>
+                  <div class="panel-footer">
+                    <div class="pull-left">
+                      <div class="btn-group">
+
+                        <a class="btn btn-default" href="#"><i class="fa fa-thumbs-up" aria-hidden="true"></i></a>
+                        <a class="btn btn-default" href="#"><i class="fa fa-thumbs-down" aria-hidden="true"></i></a>
+                      </div>
+                      <div class="btn-group">
+                        <a class="btn btn-default" href="#"><i class="fa fa-comment" aria-hidden="true"></i></a>
+                        <a class="btn btn-default" href="#"><i class="fa fa-bookmark" aria-hidden="true"></i></a>
+                      </div>
+                    </div>
+                    <div class="pull-right">
+                      <div class="link-source">
+                        <a href="{{ $link->sites->link }}">{{ $link->sites->title }}</a>
+                      </div>
+                    </div>
+
+                  </div>
+              </div>
+
+            @endforeach
+
+            </div>
+
         </div>
 
-        <div class="panel panel-default single-link col-md-7">
-            <div class="panel-body"><a href="{{ $link->address }}">
-              <div class="link-rating">
-                {{ $link->rating }}
-              </div>
-              {{ $link->title }}</a>
-            </div>
-            <div class="panel-footer">
-              <div class="pull-left">
-                <div class="btn-group">
-
-                  <a class="btn btn-default" href="#"><i class="fa fa-thumbs-up" aria-hidden="true"></i></a>
-                  <a class="btn btn-default" href="#"><i class="fa fa-thumbs-down" aria-hidden="true"></i></a>
-                </div>
-                <div class="btn-group">
-                  <a class="btn btn-default" href="#"><i class="fa fa-comment" aria-hidden="true"></i></a>
-                  <a class="btn btn-default" href="#"><i class="fa fa-bookmark" aria-hidden="true"></i></a>
-                </div>
-              </div>
-              <div class="pull-right">
-                <div class="link-source">
-                  <a href="{{ $link->sites->link }}">{{ $link->sites->title }}</a>
-                </div>
-              </div>
-
-            </div>
-        </div>
-
-      </div>
+      @endif
 
     @endforeach
 
-    {!! $links->render() !!}
+    {!! $sets->render() !!}
+
+
 
 </div>
 

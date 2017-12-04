@@ -13,6 +13,7 @@
 
 use App\Site;
 use App\Link;
+use App\Set;
 
 Route::get('/', 'LinksController@index');
 
