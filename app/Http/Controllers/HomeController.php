@@ -30,6 +30,7 @@ class HomeController extends Controller
         $sets = Set::all();
         $links = Link::orderBy('created_at', 'DESC')->paginate(10);
 
+        /* You are looking in the wrong place, my friend. */
 
         return view('home', compact('links','sites', 'sets'));
     }

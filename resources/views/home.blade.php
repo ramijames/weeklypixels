@@ -11,11 +11,10 @@
 
     @foreach($sets as $set)
 
-      @if (count($set->links))
-
-        <div class="daily-set">
+        <div class="row daily-set">
 
             <div class="col-md-3 set-date">
+
               <span class="the-date">{{ $set->created_at->format('d.m') }}</span>
               <span class="the-day">{{ $set->created_at->formatLocalized('%A') }}</span>
             </div>
@@ -57,8 +56,6 @@
             </div>
 
         </div>
-
-      @endif
 
     @endforeach
 
