@@ -26,12 +26,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $sites = Site::all();
-        $sets = Set::all();
-        $links = Link::orderBy('created_at', 'DESC')->paginate(10);
+        // This is a duplicate of LinksController@index, and only shows for logged in users.
 
-        /* You are looking in the wrong place, my friend. */
+        // Return the last 3 days by default. The user will get more with infinitescroll.
+        $sets = Set::orderBy('created_at', 'DESC')->paginate(3);
 
-        return view('home', compact('links','sites', 'sets'));
+        return view('home', compact('sets'));
     }
 }

@@ -10,7 +10,7 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:400,700|Encode+Sans+Condensed" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -32,8 +32,15 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        {{ config('app.name', 'WeeklyPixels') }}
                     </a>
+                    @guest
+                    @else
+                        <button class="btn btn-primary submit-button" data-toggle="tooltip" title="Submit a Link" data-placement="right">
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                        </button>
+                    @endguest
+
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -85,7 +92,11 @@
     <script src="https://use.fontawesome.com/bcacaab594.js"></script>
 
     <script type="text/javascript">
-        $('ul.pagination').hide();
+
+        $(document).ready(function(){
+            $('.infinite-scroll ul.pagination').hide();
+            $('[data-toggle="tooltip"]').tooltip();
+        });
     </script>
 
     <script src="{{ asset('js/app.js') }}"></script>

@@ -1,6 +1,6 @@
 body {
   background-color:#ffffff;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Helvetica', sans-serif;
 }
 
 /* typography */
@@ -11,36 +11,130 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Alegreya Sans', sans-serif;
 }
 
-/* links, buttons */
+/* links, buttons, inputs */
 
 a,
 a:focus,
 a:hover {
-    color: #111111;
+    color: #111111 !important;
     text-decoration: none;
 }
 
 .btn {
   min-width: 34px;
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'Alegreya Sans', sans-serif;
+  border-radius:0 !important;
+}
+
+.btn-primary {
+    color: #ffffff;
+    background-color: #111111;
+    border-color: #111111;
+}
+
+.btn-primary.active,
+.btn-primary:active,
+.btn-primary:hover,
+.open > .btn-primary.dropdown-toggle {
+    color: #fff;
+    background-color: #252525;
+    border-color: #252525;
+}
+
+.form-control {
+  border-radius:0;
+  box-shadow:none;
+}
+
+.form-control:focus {
+    border-color: #111111;
+    outline: 0;
+    -webkit-box-shadow: 0 0 0 4px rgba(0,0,0,.055);
+    box-shadow: 0 0 0 4px rgba(0,0,0,.055);
+}
+
+.nav {
+  font-family: 'Encode Sans Condensed', sans-serif;
+}
+
+.nav-tabs > li > a:hover {
+    border-color: #eee #eee #ddd;
+}
+
+.nav > li > a:focus,
+.nav > li > a:hover {
+  background-color: #fff;
+}
+
+.pagination > li > a, .pagination > li > span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    line-height: 1.6;
+    text-decoration: none;
+    color: #111111;
+    background-color: #fff;
+    border: 1px solid transparent;
+    margin-left: -1px;
+    min-width:38px;
+    text-align:center;
+}
+
+.pagination > .active > a, .pagination > .active > a:focus, .pagination > .active > a:hover, .pagination > .active > span, .pagination > .active > span:focus, .pagination > .active > span:hover {
+    z-index: 3;
+    color: #fff;
+    background-color: #111111;
+    border-color: transparent;
+    cursor: default;
+    border-radius:0 !important;
+}
+
+.pagination > .disabled > a, .pagination > .disabled > a:focus, .pagination > .disabled > a:hover, .pagination > .disabled > span, .pagination > .disabled > span:focus, .pagination > .disabled > span:hover {
+    color: #777;
+    background-color: #fff;
+    border-color: transparent;
+    cursor: not-allowed;
+}
+
+.pagination > li > a:focus, .pagination > li > a:hover, .pagination > li > span:focus, .pagination > li > span:hover {
+    z-index: 2;
+    color: #216a94;
+    background-color: #eee;
+    border-color: transparent;
 }
 
 /* header */
 
 .navbar-default {
-    background-color: #111111;
-    border-color: #111111;
+    background-color: #ffffff;
+    border-color: #ffffff;
 }
 
 .navbar-default .navbar-brand {
-    color: #ffffff;
+    color: #111111;
+    font-weight:bold;
 }
 
-.nav > li, .nav > li > a {
-    color: #ffffff !important;
+.nav > li,
+.nav > li > a {
+    color: #111111 !important;
+}
+
+.navbar-brand {
+    float: left;
+    padding: 0px 15px;
+    font-size: 38px;
+    line-height: 120px;
+    height: 120px;
+    font-family: 'Alegreya Sans', sans-serif;
+}
+
+.submit-button {
+  position:relative;
+  top:40px;
 }
 
 /* infinite scroll */
@@ -50,23 +144,21 @@ a:hover {
 }
 
 .infinite-scroll .set-date {
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'Alegreya Sans', sans-serif;
   color:#eee;
   text-align:right
 }
 
 .set-date .the-day {
   font-size: 33px;
-  font-weight: bold;
   position: absolute;
   right: 10px;
-  letter-spacing: 10px;
+  letter-spacing: 6px;
   top: 20px;
 }
 
 .set-date .the-date {
   font-size: 18px;
-  font-weight: bold;
   position: absolute;
   right: 19px;
   top: 10px;
@@ -102,9 +194,10 @@ a:hover {
 }
 
 .infinite-scroll .panel-body a {
-  font-size:18px;
-  font-family: 'Roboto Mono', monospace;
-  border-bottom: 1px solid rgba(0,0,0,0.12)
+  font-size:24px;
+  font-family: 'Alegreya Sans', sans-serif;
+  border-bottom: 1px solid rgba(0,0,0,0.12);
+  line-height: 30px;
 }
 
     .infinite-scroll .panel-body a:hover {
@@ -134,14 +227,12 @@ a:hover {
   background: #111111;
   color: #ffffff;
   font-size:18px;
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'Alegreya Sans', sans-serif;
   border-radius: 32px;
   margin-right: 12px;
 }
 
 .infinite-scroll .link-source a {
-  font-family: 'Roboto Mono', monospace;
-  font-weight: bold;
   color:#eee !important;
 }
 
@@ -156,4 +247,44 @@ a:hover {
   margin:120px 40px;
   color:#797979;
   overflow:auto;
+}
+
+/* admin */
+
+.admin-panel {
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding:0;
+  background-color:#ffffff;
+}
+
+.admin-toolbar {
+  background-color:#f5f8fa;
+  border-bottom: 1px solid #ddd;
+  margin:0 0 15px;
+  overflow: auto;
+}
+
+.admin-sub-nav {
+  float:left;
+}
+
+.admin-sub-nav ul.nav-pills {
+  padding: 10px;
+}
+
+.admin-sub-nav .nav-pills > li.active > a,
+.admin-sub-nav .nav-pills > li.active > a:focus,
+.admin-sub-nav .nav-pills > li.active > a:hover {
+    color: #111111 !important;
+    background-color: #ffffff;
+    border-radius:0;
+    font-weight:bold;
+}
+
+.admin-tools {
+  float:right;
+  border-left:1px solid #ddd;
+  padding:13px;
 }
