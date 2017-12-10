@@ -15,6 +15,8 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+    <link href="http://cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css" rel="stylesheet">
+
 </head>
 <body>
     <div id="app">
@@ -86,7 +88,8 @@
         </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('js/infinite-scroll.pkgd.min.js') }}"></script>
 
     <script src="https://use.fontawesome.com/bcacaab594.js"></script>
@@ -98,6 +101,9 @@
             $('[data-toggle="tooltip"]').tooltip();
         });
     </script>
+
+    @stack('scripts')
+
 
     <script src="{{ asset('js/app.js') }}"></script>
 </body>

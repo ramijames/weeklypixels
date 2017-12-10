@@ -37,32 +37,37 @@
 
 
   <div class="col-md-12" role="main">
-    <table class="table table-condensed tabl-hover">
+    <table class="table table-hover datatable" id="users-table">
       <thead>
         <tr>
           <th>ID</th>
-          <th>Username</th>
+          <th>Name</th>
           <th>Email</th>
           <th>Actions</th>
         </tr>
       </thead>
-      <tbody>
-        @foreach($users as $user)
-          <tr>
-            <td>{{ $user->id }}</td>
-            <td>{{ $user->name }}</td>
-            <td>{{ $user->email }}</td>
-            <td></td>
-          </tr>
-        @endforeach
-
-      </tbody>
     </table>
-
-    {!! $users->render() !!}
 
   </div>
 
 </div>
 
 @endsection
+
+@push('scripts')
+  <script>
+  $(document).ready(function() {
+      $.noConflict();
+      $('#users-table').DataTable({
+          processing: true,
+          serverSide: true,
+          ajax: '{{ route('datatable/users') }}',
+          columns: [
+              {data: 'id', name: 'id'},
+              {data: 'name', name: 'name'},
+              {data: 'email', name: 'email'},
+          ]
+      });
+  });
+  </script>
+@endpush

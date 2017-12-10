@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Set;
 use App\Site;
+use Datatables;
 
 class AdminController extends Controller
 {
@@ -92,7 +93,7 @@ class AdminController extends Controller
      */
     public function viewusers()
     {
-        $users = User::orderBy('created_at', 'ASC')->paginate(5);
+        $users = User::orderBy('created_at', 'ASC')->paginate(20);
 
         return view('admin.partials.users', compact('users'));
     }
