@@ -13,11 +13,22 @@
 
 use App\Site;
 use App\Link;
+use App\Set;
 
+/* Links */
 Route::get('/', 'LinksController@index');
+Route::get('/links/generate', 'LinksController@generateLinks');
+Route::post('/link/create', 'LinksController@create');
 
-Route::get('/generate', 'LinksController@generateLinks');
+/* Sets */
+Route::get('/sets/create', 'SetController@create');
+Route::post('/link/create', 'SetController@create');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/admin', 'AdminController@index')->name('admin');
+Route::get('/admin/users', 'AdminController@viewusers');
+Route::get('/admin/sets', 'AdminController@viewsets');
+Route::get('/admin/sites', 'AdminController@viewsites');

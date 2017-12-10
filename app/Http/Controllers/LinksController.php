@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use duzun\hQuery;
 use App\Site;
 use App\Link;
+use App\Set;
 
 class LinksController extends Controller
 {
@@ -16,10 +17,10 @@ class LinksController extends Controller
      */
     public function index()
     {
-        $sites = Site::all();
-        $links = Link::orderBy('created_at', 'DESC')->paginate(10);
+        // Return the last 3 days by default. The user will get more with infinitescroll.
+        $sets = Set::orderBy('created_at', 'DESC')->paginate(3);
 
-        return view('home', compact('links','sites'));
+        return view('home', compact('sets'));
 
     }
 
@@ -158,9 +159,9 @@ class LinksController extends Controller
           }
 
           // sometimes we get here and links have only spaces
-          if(preg_match('/^\s+$/', $link['title'])) == 1){
-              unset($validatedlinks[$count]);
-          }
+          // if(preg_match('/^\s+$/', $link['title'])) == 1){
+          //     unset($validatedlinks[$count]);
+          // }
 
           $count = $count + 1;
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Site;
 use App\Link;
+use App\Set;
 
 class HomeController extends Controller
 {
@@ -25,9 +26,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $sites = Site::all();
-        $links = Link::orderBy('created_at', 'DESC')->paginate(10);
+        // This is a duplicate of LinksController@index, and only shows for logged in users.
 
-        return view('home', compact('links','sites'));
+        // Return the last 3 days by default. The user will get more with infinitescroll.
+        $sets = Set::orderBy('created_at', 'DESC')->paginate(3);
+
+        return view('home', compact('sets'));
     }
 }

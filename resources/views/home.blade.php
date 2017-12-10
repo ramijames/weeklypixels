@@ -2,30 +2,66 @@
 
 @section('content')
 
-<div class="infinite-scroll" data-infinite-scroll='{ "path": ".pagination a", "append": ".single-link", "history": false }'>
+<div class="infinite-scroll" data-infinite-scroll='{ "path": ".pagination a", "append": ".daily-set", "history": false }'>
     @if (session('status'))
         <div class="alert alert-success">
             {{ session('status') }}
         </div>
     @endif
 
-    @foreach($links as $link)
+    @foreach($sets as $set)
 
-      <div class="panel panel-default single-link">
-          <div class="panel-heading">
-            <span class="pull-left">{{ $link->rating }}</span>
-            <span class="pull-right">{{ $link->sites->title }} <img src="https://www.google.com/s2/favicons?domain={{ $link->sites->link }}" /></span>
-          </div>
-          <div class="panel-body"><a href="{{ $link->address }}">{{ $link->title }}</a></div>
-          <div class="panel-footer">
-            <a class="btn btn-default btn-sm" href="#"><i class="fa fa-comment" aria-hidden="true"></i></a>
-            <a class="btn btn-default btn-sm" href="#"><i class="fa fa-bookmark" aria-hidden="true"></i></a>
-          </div>
-      </div>
+        <div class="row daily-set">
+
+            <div class="col-md-3 set-date">
+
+              <span class="the-date">{{ $set->created_at->format('d.m') }}</span>
+              <span class="the-day">{{ $set->created_at->formatLocalized('%A') }}</span>
+            </div>
+
+            <div class="col-md-8">
+
+              @foreach($set->links as $link)
+
+                <div class="panel panel-default single-link">
+                  <div class="panel-body"><a href="{{ $link->address }}">
+                    <div class="link-rating">
+                      {{ $link->rating }}
+                    </div>
+                    {{ $link->title }}</a>
+                  </div>
+                  <div class="panel-footer">
+                    <div class="pull-left">
+                      <div class="btn-group">
+
+                        <a class="btn btn-default" href="#"><i class="fa fa-thumbs-up" aria-hidden="true"></i></a>
+                        <a class="btn btn-default" href="#"><i class="fa fa-thumbs-down" aria-hidden="true"></i></a>
+                      </div>
+                      <div class="btn-group">
+                        <a class="btn btn-default" href="#"><i class="fa fa-comment" aria-hidden="true"></i></a>
+                        <a class="btn btn-default" href="#"><i class="fa fa-bookmark" aria-hidden="true"></i></a>
+                      </div>
+                    </div>
+                    <div class="pull-right">
+                      <div class="link-source">
+                        <a href="{{ $link->sites->link }}">{{ $link->sites->title }}</a>
+                      </div>
+                    </div>
+
+                  </div>
+              </div>
+
+            @endforeach
+
+            </div>
+
+        </div>
 
     @endforeach
 
-    {!! $links->render() !!}
+    {!! $sets->render() !!}
+
+
 
 </div>
 
