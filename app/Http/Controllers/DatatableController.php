@@ -18,4 +18,19 @@ class DataTableController extends Controller
     {
         return \DataTables::of(User::query())->make(true);
     }
+
+    public function getSites()
+    {
+        return \DataTables::of(Site::query())->make(true);
+    }
+
+    public function getSets()
+    {
+        return \DataTables::of(Set::query())->make(true);
+    }
+
+    public function getLinks()
+    {
+        return \DataTables::of(Link::query())->make(true);
+    }
 }

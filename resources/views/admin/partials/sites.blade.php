@@ -37,17 +37,17 @@
                     <input class="form-control" type="text" name="siteselector" placeholder="Site Selector" aria-describedby="addon-selector" required>
                 </div>
             </div>
-            <div class="">
+            <div class="form-group">
                 <div class="input-group">
                     <span class="input-group-addon" id="addon-weight"><i class="fa fa-link"></i></span>
                     <input class="form-control" type="text" name="siteweight" placeholder="1" default="1" aria-describedby="addon-weight" required>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary">Add New Site</button>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
+            <div class="form-group">
+              <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
+              <button type="submit" class="btn btn-primary pull-right">Add New Site</button>
+            </div>
+          </form>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
@@ -94,17 +94,22 @@
           <th>Site Name</th>
           <th>Link</th>
           <th>Selector</th>
+          <th>Weight</th>
           <th>Actions</th>
         </tr>
       </thead>
       <tbody>
+
         @foreach($sites as $site)
           <tr>
             <td>{{ $site->id }}</td>
             <td>{{ $site->title }}</td>
             <td>{{ $site->link }}</td>
             <td>{{ $site->selector }}</td>
-            <td></td>
+            <td>{{ $site->weight }}</td>
+            <td>
+              <a class="btn btn-default" href="{{ url('/') }}/admin/sites/destroy/{{ $site->id }}"><i class="fa fa-trash" aria-hidden="true"></i></a>
+            </td>
           </tr>
         @endforeach
 

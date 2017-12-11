@@ -43,9 +43,23 @@
           <th>ID</th>
           <th>Name</th>
           <th>Email</th>
-          <th>Actions</th>
+          <th>Delete</th>
         </tr>
       </thead>
+      <tbody>
+
+        @foreach($users as $user)
+          <tr>
+            <td>{{ $user->id }}</td>
+            <td>{{ $user->name }}</td>
+            <td>{{ $user->email }}</td>
+            <td>
+              <a class="btn btn-default" href="{{ url('/') }}/admin/users/destroy/{{ $user->id }}"><i class="fa fa-trash" aria-hidden="true"></i></a>
+            </td>
+          </tr>
+        @endforeach
+
+      </tbody>
     </table>
 
   </div>
@@ -55,7 +69,7 @@
 @endsection
 
 @push('scripts')
-  <script>
+  <!-- script>
   $(document).ready(function() {
       $.noConflict();
       $('#users-table').DataTable({
@@ -66,8 +80,9 @@
               {data: 'id', name: 'id'},
               {data: 'name', name: 'name'},
               {data: 'email', name: 'email'},
+              {data: 'action', name:'action', orderable: false, searchable: false}
           ]
       });
   });
-  </script>
+  </script-->
 @endpush

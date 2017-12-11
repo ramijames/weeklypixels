@@ -7,10 +7,10 @@ use App\Site;
 
 class SiteController extends Controller
 {
+    // You have to make sure the request object is passed through
     public function store(Request $request){
 
-      // dd(request());
-
+      // Validate
       $this->validate(request(),[
         'sitetitle' => 'required',
         'siteshortname' => 'required|max:2',
@@ -19,14 +19,34 @@ class SiteController extends Controller
         'siteweight' => 'required'
       ]);
 
+      // Build.
       Site::create([
         'title' => request('sitetitle'),
         'shortname' => request('siteshortname'),
         'link' => request('sitelink'),
         'selector' => request('siteselector'),
         'weight' => request('siteweight')
-      ]); // saves to db automatically, Post Model uses $fillable
+      ]);
 
+      // Return to list
       return redirect('/admin/sites');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+      $site = Site::findOrFail($id);
+      $site->delete();
+
+      // Return to list
+      return redirect('/admin/sites')->with([
+        'flash_message' => 'Deleted',
+        'flash_message_important' => false
+      ]);
     }
 }
