@@ -2,6 +2,8 @@
 
 @section('content')
 
+@yield('modal')
+
 @yield('adminnav')
 
 @yield('admincontent')

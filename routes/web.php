@@ -32,6 +32,7 @@ Route::get('/admin', 'AdminController@index')->name('admin');
 Route::get('/admin/users', 'AdminController@viewusers');
 Route::get('/admin/sets', 'AdminController@viewsets');
 Route::get('/admin/sites', 'AdminController@viewsites');
+Route::post('/admin/sites/store', 'SiteController@store');
 
 
 Route::get('datatable/users', 'DataTableController@getUsers')->name('datatable/users');

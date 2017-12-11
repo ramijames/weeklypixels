@@ -26,13 +26,22 @@ a:hover {
 .btn {
   min-width: 34px;
   font-family: 'Alegreya Sans', sans-serif;
-  border-radius:0 !important;
+  border-radius:44px !important;
+  border: 2px solid #111111;
+  transition:all .08s linear;
+}
+
+.btn-link,
+.btn-link:active,
+.btn-link:focus,
+.btn-link:hover {
+    border-color: transparent !important;
 }
 
 .btn-primary {
     color: #ffffff;
     background-color: #111111;
-    border-color: #111111;
+    border: 2px solid #111111;
 }
 
 .btn-primary.active,
