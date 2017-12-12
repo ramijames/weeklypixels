@@ -93,9 +93,21 @@ a:hover {
     border-color: #eee #eee #ddd;
 }
 
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:focus,
+.nav-tabs > li.active > a:hover {
+  color: #555;
+  background-color: transparent;
+  border: 0px solid transparent;
+  border-bottom-color: transparent;
+  border-bottom-color: transparent;
+  cursor: default;
+}
+
 .nav > li > a:focus,
 .nav > li > a:hover {
-  background-color: #fff;
+  background-color: transparent;
+  border: 0px solid transparent;
 }
 
 .pagination > li > a, .pagination > li > span {
@@ -296,6 +308,42 @@ a:hover {
   overflow: auto;
 }
 
+.admin-nav {
+  display:table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.admin-nav li:hover,
+.admin-nav li:active,
+.admin-nav li:focus {
+  display:table-cell;
+  margin-bottom: 0;
+  background: #f5f8fa;
+}
+
+.admin-nav li {
+  display:table-cell;
+  margin-bottom: 0;
+  border-bottom: 2px solid transparent;
+  float: none;
+  text-align: center;
+  font-size: 16px;
+  transition:all 0.12s linear;
+  width: 20%;
+}
+
+.admin-nav li.active {
+  display:table-cell;
+  margin-bottom: 0;
+  border-bottom: 2px solid #2c3e50 !important;
+  background: #2c3e50 !important;
+}
+
+  .admin-nav li.active a {
+    color:#ffffff !important;
+  }
+
 .admin-sub-nav {
   float:left;
 }
@@ -317,4 +365,17 @@ a:hover {
   float:right;
   border-left:1px solid #ddd;
   padding:13px;
+}
+
+.floating-action {
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  height:60px;
+  background-color:#3c5671;
+  padding: 13px;
+  text-align: center;
+  margin: 0;
+  z-index: 100000;
 }

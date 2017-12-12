@@ -14,7 +14,7 @@
     </div>
     <div class="admin-tools">
       <div class="btn-group">
-        <a href="{{ url('/') }}/admin/sets/generate" class="btn btn-primary">Generate a Set</a>
+        <a href="{{ url('/') }}/admin/links/generate" class="btn btn-primary">Add a Link</a>
       </div>
     </div>
   </div>
@@ -31,17 +31,11 @@
         </tr>
       </thead>
       <tbody>
-        @foreach($sets as $set)
+        @foreach($links as $link)
           <tr>
-            <td>{{ $set->id }}</td>
-            <td>{{ $set->created_at }}</td>
-            <td>
-              <ul>
-                @foreach($set->links as $link)
-                  <li><a href="{{ $link->address }}">{{ $link->title }}</a></li>
-                @endforeach
-              </ul>
-            </td>
+            <td>{{ $link->id }}</td>
+            <td><a href="{{ $link->address }}">{{ $link->title }}</a></td>
+            <td>{{ $link->created_at }}</td>
             <td></td>
           </tr>
         @endforeach
@@ -49,7 +43,7 @@
       </tbody>
     </table>
 
-    {!! $sets->render() !!}
+    {!! $links->render() !!}
 
   </div>
 

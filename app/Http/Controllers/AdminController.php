@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Set;
+use App\Link;
 use App\Site;
 use Datatables;
 
@@ -120,6 +121,18 @@ class AdminController extends Controller
         $sets = Set::orderBy('created_at', 'DESC')->paginate(5);
 
         return view('admin.partials.sets', compact('sets'));
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function viewlinks()
+    {
+        $links = Link::get();
+
+        return view('admin.partials.links', compact('links'));
     }
 
 }
