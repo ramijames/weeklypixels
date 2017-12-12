@@ -34,7 +34,11 @@
         @foreach($links as $link)
           <tr>
             <td>{{ $link->id }}</td>
-            <td><a href="{{ $link->address }}">{{ $link->title }}</a></td>
+            <td>
+              <a href="{{ $link->address }}">{{ $link->title }}</a>
+              <br>
+              <span class="tag label label-info">{{ $link->sites->title }}</span>
+            </td>
             <td>{{ $link->created_at }}</td>
             <td>
               <a class="btn btn-default" href="{{ url('/') }}/admin/links/destroy/{{ $link->id }}"><i class="fa fa-trash" aria-hidden="true"></i></a>
