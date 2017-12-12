@@ -25,43 +25,43 @@
     </div>
     <div class="admin-tools">
       <div class="btn-group">
-        <a href="{{ url('/') }}/admin/sets/generate" class="btn btn-primary">Generate a Set</a>
+        <a href="{{ url('/') }}/admin/sets" class="btn btn-default">Cancel</a>
       </div>
     </div>
   </div>
 
 
   <div class="col-md-12" role="main">
-    <table class="table table-condensed tabl-hover">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Generated</th>
-          <th>Link</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        @foreach($sets as $set)
+    <form action="{{ url('/') }}/admin/sets/store" method="POST" accept-charset="utf-8">
+
+    {{ csrf_field() }}
+
+    <table class="table table-condensed">
+
+        @foreach($links as $link)
+
           <tr>
-            <td>{{ $set->id }}</td>
-            <td>{{ $set->created_at }}</td>
             <td>
-              <ul>
-                @foreach($set->links as $link)
-                  <li><a href="{{ $link->address }}">{{ $link->title }}</a></li>
-                @endforeach
-              </ul>
+              <input type="checkbox" id="inlineCheckbox{{ $link->id }}" name="links[]" value="{{ $link->id }}">
             </td>
-            <td></td>
+            <td>
+              {{ $link->title }}
+            </td>
+            <td>
+              <a class="btn btn-default" href="{{ $link->address }}">View External</a>
+            </td>
           </tr>
+
         @endforeach
 
-      </tbody>
+
     </table>
 
-    {!! $sets->render() !!}
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Add New Set</button>
+    </div>
 
+    </form>
   </div>
 
 </div>

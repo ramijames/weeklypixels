@@ -14,7 +14,7 @@ class SiteController extends Controller
       $this->validate(request(),[
         'sitetitle' => 'required',
         'siteshortname' => 'required|max:2',
-        'sitelink' => 'required',
+        'sitelink' => 'required|url',
         'siteselector' => 'required',
         'siteweight' => 'required'
       ]);

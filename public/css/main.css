@@ -23,6 +23,11 @@ a:hover {
   color:#2c3e50;
 }
 
+.row{
+  margin-left: 0;
+  margin-right: 0;
+}
+
 .btn {
   min-width: 34px;
   font-family: 'Alegreya Sans', sans-serif;
@@ -75,7 +80,7 @@ a:hover {
 .table > tfoot > tr > th,
 .table > thead > tr > td,
 .table > thead > tr > th {
-    padding: 12px;
+    padding: 12px 6px;
     vertical-align: middle;
     border-top: 1px solid rgba(0,0,0,0.12);
 }

@@ -31,9 +31,12 @@ Route::post('/link/create', 'LinksController@create');
 Route::get('datatable/links', 'DataTableController@getLinks')->name('datatable/links');
 
 //Sets
-Route::get('/sets/create', 'SetController@create');
-Route::post('/link/create', 'SetController@create');
+// Route::get('/sets/', 'SetController@create');
+// Route::post('/sets/create', 'SetController@create');
 Route::get('/admin/sets', 'AdminController@viewsets');
+Route::post('/admin/sets/store', 'SetController@store');
+Route::get('/admin/sets/generate', 'SetController@generate');
+Route::get('/admin/sets/destroy/{set}', 'SetController@destroy');
 Route::get('datatable/sets', 'DataTableController@getSets')->name('datatable/sets');
 
 // Sites
