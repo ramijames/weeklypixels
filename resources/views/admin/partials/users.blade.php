@@ -1,19 +1,8 @@
 @extends('admin.admin')
 
-@section('adminnav')
-
-<div class="row">
-  <ul class="nav nav-tabs">
-    <li><a href="{{ url('/') }}/admin">Dashboard</a></li>
-    <li class="active"><a href="{{ url('/') }}/admin/users">Users</a></li>
-    <li><a href="{{ url('/') }}/admin/sets">Sets</a></li>
-    <li><a href="{{ url('/') }}/admin/sites">Sites</a></li>
-  </ul>
-</div>
-
-@endsection
-
 @section('admincontent')
+
+@include('admin.partials.nav')
 
 <div class="row admin-panel">
 

@@ -56,5 +56,8 @@
         "preferred-install": "dist",
         "sort-packages": true,
         "optimize-autoloader": true
-    }
+    },
+    "files": [
+      "app/Helpers.php"
+    ]
 }
