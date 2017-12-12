@@ -14,7 +14,7 @@
     </div>
     <div class="admin-tools">
       <div class="btn-group">
-        <a href="{{ url('/') }}/admin/links/generate" class="btn btn-primary">Add a Link</a>
+        <a href="{{ url('/') }}/admin/sets/generate" class="btn btn-primary">Add a Link</a>
       </div>
     </div>
   </div>
@@ -25,8 +25,8 @@
       <thead>
         <tr>
           <th>ID</th>
+          <th>Title/Link</th>
           <th>Generated</th>
-          <th>Link</th>
           <th>Actions</th>
         </tr>
       </thead>
@@ -36,14 +36,14 @@
             <td>{{ $link->id }}</td>
             <td><a href="{{ $link->address }}">{{ $link->title }}</a></td>
             <td>{{ $link->created_at }}</td>
-            <td></td>
+            <td>
+              <a class="btn btn-default" href="{{ url('/') }}/admin/links/destroy/{{ $link->id }}"><i class="fa fa-trash" aria-hidden="true"></i></a>
+            </td>
           </tr>
         @endforeach
 
       </tbody>
     </table>
-
-    {!! $links->render() !!}
 
   </div>
 

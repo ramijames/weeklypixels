@@ -281,9 +281,6 @@ class SetController extends Controller
       $set->delete();
 
       // Return to list
-      return redirect('/admin/sets')->with([
-        'flash_message' => 'Deleted',
-        'flash_message_important' => false
-      ]);
+      return redirect('/admin/sets')->with('status', 'Set Deleted.');
     }
 }

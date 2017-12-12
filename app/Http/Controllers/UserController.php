@@ -84,9 +84,6 @@ class UserController extends Controller
       $user->delete();
 
       // Return to list
-      return redirect('/admin/users')->with([
-        'flash_message' => 'Deleted',
-        'flash_message_important' => false
-      ]);
+      return redirect('/admin/users')->with('status', 'User Deleted.');
     }
 }

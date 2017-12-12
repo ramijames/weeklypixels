@@ -18,6 +18,7 @@ use App\Set;
 Auth::routes();
 
 // Home
+Route::get('/', 'LinksController@index');
 Route::get('/home', 'HomeController@index')->name('home');
 
 // Admin
@@ -25,7 +26,6 @@ Route::get('/admin', 'AdminController@index')->name('admin');
 Route::get('/admin/users', 'AdminController@viewusers');
 
 // Links
-Route::get('/', 'LinksController@index');
 // Route::get('/links/generate', 'LinksController@generateLinks');
 // Route::post('/link/create', 'LinksController@create');
 // Route::get('datatable/links', 'DataTableController@getLinks')->name('datatable/links');

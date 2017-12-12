@@ -44,9 +44,6 @@ class SiteController extends Controller
       $site->delete();
 
       // Return to list
-      return redirect('/admin/sites')->with([
-        'flash_message' => 'Deleted',
-        'flash_message_important' => false
-      ]);
+      return redirect('/admin/sites')->with('status', 'Site Deleted.');
     }
 }
