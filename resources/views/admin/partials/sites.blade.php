@@ -57,8 +57,6 @@
 
 @section('admincontent')
 
-@include('admin.partials.nav')
-
 <div class="row admin-panel">
 
   <div class="admin-toolbar">
@@ -92,7 +90,7 @@
         @foreach($sites as $site)
           <tr>
             <td>{{ $site->id }}</td>
-            <td>{{ $site->title }}</td>
+            <td><strong>{{ $site->title }}</strong></td>
             <td>{{ $site->link }}</td>
             <td>{{ $site->selector }}</td>
             <td>{{ $site->weight }}</td>

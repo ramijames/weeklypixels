@@ -19,10 +19,11 @@
 
 
   <div class="col-md-12" role="main">
-    <table class="table table-condensed tabl-hover">
+    <table class="table table-condensed table-hover">
       <thead>
         <tr>
           <th>ID</th>
+          <th>Site</th>
           <th>Title/Link</th>
           <th>Generated</th>
           <th>Actions</th>
@@ -32,11 +33,8 @@
         @foreach($links as $link)
           <tr>
             <td>{{ $link->id }}</td>
-            <td>
-              <a href="{{ $link->address }}">{{ $link->title }}</a>
-              <br>
-              <span class="tag label label-info">{{ $link->sites->title }}</span>
-            </td>
+            <td><span class="tag label label-info">{{ $link->sites->title }}</span></td>
+            <td><strong><a href="{{ $link->address }}">{{ $link->title }}</a></strong></td>
             <td>{{ $link->created_at }}</td>
             <td>
               <a class="btn btn-default" href="{{ url('/') }}/admin/links/destroy/{{ $link->id }}"><i class="fa fa-trash" aria-hidden="true"></i></a>
@@ -46,6 +44,10 @@
 
       </tbody>
     </table>
+
+    <div class="floating-action">
+      {!! $links->render() !!}
+    </div>
 
   </div>
 

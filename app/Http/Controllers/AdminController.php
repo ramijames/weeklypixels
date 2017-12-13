@@ -130,7 +130,7 @@ class AdminController extends Controller
      */
     public function viewlinks()
     {
-        $links = Link::get();
+        $links = Link::orderBy('created_at', 'DESC')->paginate(50);
 
         return view('admin.partials.links', compact('links'));
     }

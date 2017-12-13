@@ -31,11 +31,8 @@
             <td>
               <input type="checkbox" id="inlineCheckbox{{ $link->id }}" name="links[]" value="{{ $link->id }}">
             </td>
-            <td>
-              <a href="{{ $link->address }}">{{ $link->title }}</a>
-              <br>
-              <span class="tag label label-info">{{ $link->sites->title }}</span>
-            </td>
+            <td><span class="tag label label-info">{{ $link->sites->title }}</span></td>
+            <td><a href="{{ $link->address }}">{{ $link->title }}</a></td>
             <td>
               <a class="btn btn-default" href="{{ $link->address }}">View External</a>
             </td>

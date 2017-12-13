@@ -38,7 +38,7 @@
         @foreach($users as $user)
           <tr>
             <td>{{ $user->id }}</td>
-            <td>{{ $user->name }}</td>
+            <td><strong>{{ $user->name }}</strong></td>
             <td>{{ $user->email }}</td>
             <td>
               <a class="btn btn-default" href="{{ url('/') }}/admin/users/destroy/{{ $user->id }}"><i class="fa fa-trash" aria-hidden="true"></i></a>
