@@ -1,3 +1,7 @@
+html,body,#app {
+  height:100%;
+}
+
 body {
   background-color:#ffffff;
   font-family: 'Helvetica', sans-serif;
@@ -80,9 +84,16 @@ a:hover {
 .table > tfoot > tr > th,
 .table > thead > tr > td,
 .table > thead > tr > th {
-    padding: 12px 6px;
     vertical-align: middle;
-    border-top: 1px solid rgba(0,0,0,0.12);
+    border-top: 1px solid rgba(0,0,0,0.04);
+}
+
+.table-hover > tbody > tr:hover {
+    background-color: #f5f8fa80;
+}
+
+.table > thead > tr > th {
+    border-bottom: 2px solid #2c3e50;
 }
 
 .nav {
@@ -108,6 +119,11 @@ a:hover {
 .nav > li > a:hover {
   background-color: transparent;
   border: 0px solid transparent;
+}
+
+.navbar-static-top .navbar-nav > li > a,
+.navbar-static-top .navbar-text {
+  color:#ffffff !important;
 }
 
 .pagination > li > a, .pagination > li > span {
@@ -150,36 +166,54 @@ a:hover {
 /* header */
 
 .navbar-default {
-    background-color: #ffffff;
-    border-color: #ffffff;
+    background-color: #2c3e50;
+    border-color: #2c3e50;
+    margin:0;
 }
 
-.navbar-default .navbar-brand {
-    color: #111111;
+.navbar-default .navbar-brand,
+.navbar-default .navbar-brand:focus,
+.navbar-default .navbar-brand:hover {
+    color: #ffffff;
     font-weight:bold;
 }
 
-.nav > li,
-.nav > li > a {
-    color: #111111 !important;
+.navbar-static-top > li,
+.navbar-static-top > li > a,
+.navbar-static-top > li > a,
+.navbar-static-top,
+.navbar-static-top > li > a:focus,
+.navbar-static-top > li > a:hover {
+    color: #ffffff;
+}
+
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .open > a:hover {
+    background-color: rgba(0,0,0,0.12);
+    color: #ffffff;
 }
 
 .navbar-brand {
     float: left;
     padding: 0px 15px;
-    font-size: 38px;
-    line-height: 120px;
-    height: 120px;
+    font-size: 16px;
+    line-height: 50px;
+    height: 50px;
     font-family: 'Alegreya Sans', sans-serif;
-    border-color:transparent !important;
+    border-color: transparent !important;
 }
 
 .submit-button {
-  position:relative;
-  top:40px;
+  position: relative;
+  top: 11px;
+  min-width: 20px;
+  border-radius: 20px !important;
 }
 
 /* infinite scroll */
+
+.weekly-content {
+  margin-top:40px;
+}
 
 .infinite-scroll {
 
@@ -187,7 +221,7 @@ a:hover {
 
 .infinite-scroll .set-date {
   font-family: 'Alegreya Sans', sans-serif;
-  color:#eee;
+  color:#ddd;
   text-align:right
 }
 
@@ -293,6 +327,23 @@ a:hover {
 
 /* admin */
 
+.admin-wrapper {
+  display:table;
+  width:100%;
+  height: calc(100% - 50px);
+}
+
+.admin-nav-wrapper {
+  width:240px;
+  display:table-cell;
+  vertical-align: top;
+  background-color:#374b5f !important;
+}
+
+.admin-content-wrapper {
+  display:table-cell;
+}
+
 .admin-panel {
   border-left: 1px solid #ddd;
   border-right: 1px solid #ddd;
@@ -317,27 +368,29 @@ a:hover {
 .admin-nav li:hover,
 .admin-nav li:active,
 .admin-nav li:focus {
-  display:table-cell;
-  margin-bottom: 0;
-  background: #f5f8fa;
+  background: rgba(0,0,0,0.12);
+  color:#ffffff;
 }
 
 .admin-nav li {
-  display:table-cell;
-  margin-bottom: 0;
-  border-bottom: 2px solid transparent;
-  float: none;
-  text-align: center;
   font-size: 16px;
   transition:all 0.12s linear;
-  width: 20%;
+}
+
+.admin-nav > li > a {
+  color:#ffffff;
+  background:transparent;
+}
+
+.admin-nav > li.active > a,
+.admin-nav > li.active > a:focus,
+.admin-nav > li.active > a:hover {
+  background:transparent;
 }
 
 .admin-nav li.active {
-  display:table-cell;
-  margin-bottom: 0;
-  border-bottom: 2px solid #2c3e50 !important;
-  background: #2c3e50 !important;
+  background: rgba(0,0,0,0.24);
+  color:#ffffff;
 }
 
   .admin-nav li.active a {

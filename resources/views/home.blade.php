@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="infinite-scroll" data-infinite-scroll='{ "path": ".pagination a", "append": ".daily-set", "history": false }'>
+<div class="infinite-scroll container" data-infinite-scroll='{ "path": ".pagination a", "append": ".daily-set", "history": false }'>
     @if (session('status'))
         <div class="alert alert-success">
             {{ session('status') }}

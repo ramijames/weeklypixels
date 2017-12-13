@@ -1,11 +1,17 @@
 @extends('layouts.app')
 
-@section('content')
+@section('admin')
 
 @yield('modal')
 
-@yield('adminnav')
+<div class="admin-wrapper">
+  <div class="admin-nav-wrapper">
+    @include('admin.partials.nav')
+  </div>
 
-@yield('admincontent')
+  <div class="admin-content-wrapper">
+    @yield('admincontent')
+  </div>
+</div>
 
 @endsection

@@ -21,7 +21,7 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="navbar-header">
 
                     <!-- Collapsed Hamburger -->
@@ -38,7 +38,7 @@
                     </a>
                     @guest
                     @else
-                        <button class="btn btn-primary submit-button" data-toggle="tooltip" title="Submit a Link" data-placement="right">
+                        <button class="btn btn-default btn-sm submit-button" data-toggle="tooltip" title="Submit a Link" data-placement="right">
                             <i class="fa fa-plus" aria-hidden="true"></i>
                         </button>
                     @endguest
@@ -83,7 +83,9 @@
             </div>
         </nav>
 
-        <div class="container">
+        @yield('admin')
+
+        <div class="container-fluid weekly-content">
 
             @if (session('status'))
                  <div class="alert alert-warning">

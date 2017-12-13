@@ -2,9 +2,7 @@
 
 @section('admincontent')
 
-@include('admin.partials.nav')
-
-<div class="row admin-panel">
+<div class="admin-panel">
   <div class="col-md-12" role="main">
     <div class="panel panel-default">
       <div class="panel-heading">

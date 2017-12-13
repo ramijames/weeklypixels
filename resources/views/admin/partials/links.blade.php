@@ -2,8 +2,6 @@
 
 @section('admincontent')
 
-@include('admin.partials.nav')
-
 <div class="row admin-panel">
 
   <div class="admin-toolbar">
