@@ -333,6 +333,17 @@ a:hover {
 
 /* admin */
 
+.alert {
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid transparent;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-radius: 4px;
+}
+
 .admin-wrapper {
   display:table;
   width:100%;
@@ -381,6 +392,7 @@ a:hover {
 .admin-nav li {
   font-size: 16px;
   transition:all 0.12s linear;
+  line-height:40px;
 }
 
 .admin-nav > li > a {

@@ -10,6 +10,13 @@
   </div>
 
   <div class="admin-content-wrapper">
+
+    @if (session('status'))
+     <div class="alert alert-warning">
+        <p>{{ session('status') }}</p>
+     </div>
+    @endif
+
     @yield('admincontent')
   </div>
 </div>
