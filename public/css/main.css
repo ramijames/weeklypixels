@@ -389,6 +389,19 @@ a:hover {
   color:#ffffff;
 }
 
+.admin-nav li:hover a,
+.admin-nav li:active a,
+.admin-nav li:focus a,
+.admin-nav li:hover .fa,
+.admin-nav li:active .fa,
+.admin-nav li:focus .fa {
+  color:#ffffff;
+}
+
+.admin-nav > li + li {
+  margin:0;
+}
+
 .admin-nav li {
   font-size: 16px;
   transition:all 0.12s linear;
@@ -396,8 +409,26 @@ a:hover {
 }
 
 .admin-nav > li > a {
-  color:#ffffff;
+  color: rgba(255,255,255,0.44);
   background:transparent;
+}
+
+.admin-nav > li > a .fa{
+  width: 34px;
+  height: 34px;
+  font-size: 14px;
+  text-align: center;
+  margin: 4px 8px 4px 0;
+  background: rgba(0,0,0,0.12);
+  border-radius: 22px;
+  display: block;
+  float: left;
+  line-height: 34px;
+  color: rgba(255,255,255,0.44);
+}
+
+.admin-nav > li.active > a .fa {
+  color: rgba(255,255,255,1);
 }
 
 .admin-nav > li.active > a,
@@ -408,7 +439,7 @@ a:hover {
 
 .admin-nav li.active {
   background: rgba(0,0,0,0.24);
-  color:#ffffff;
+  color: rgba(255,255,255,1);
 }
 
   .admin-nav li.active a {
