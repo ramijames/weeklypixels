@@ -19,7 +19,7 @@
     </div>
     <div class="admin-tools">
       <div class="btn-group">
-        <div class="btn btn-primary">Add a User</div>
+        <div class="btn btn-primary">Add a Role</div>
       </div>
     </div>
   </div>
@@ -31,25 +31,19 @@
         <tr>
           <th>ID</th>
           <th>Name</th>
-          <th>Email</th>
-          <th>Role</th>
-          <th></th>
+          <th>Description</th>
+          <th>Delete</th>
         </tr>
       </thead>
       <tbody>
 
-        @foreach($users as $user)
+        @foreach($roles as $role)
           <tr>
-            <td>{{ $user->id }}</td>
-            <td><strong>{{ $user->name }}</strong></td>
-            <td>{{ $user->email }}</td>
+            <td>{{ $role->id }}</td>
+            <td><strong>{{ $role->name }}</strong></td>
+            <td>{{ $role->description }}</td>
             <td>
-                @foreach($user->roles as $role)
-                  {{ $role->name }}
-                @endforeach</td>
-            <td>
-              <a class="btn btn-default" href="{{ url('/') }}/admin/users/destroy/{{ $user->id }}"><i class="fa fa-trash" aria-hidden="true"></i></a>
-              <a class="btn btn-default" href="{{ url('/') }}/admin/user/{{ $user->id }}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+              <a class="btn btn-default" href="{{ url('/') }}/admin/roles/destroy/{{ $role->id }}"><i class="fa fa-trash" aria-hidden="true"></i></a>
             </td>
           </tr>
         @endforeach

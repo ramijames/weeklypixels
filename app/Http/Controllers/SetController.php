@@ -43,15 +43,6 @@ class SetController extends Controller
             $this->saveLinksToDb($link,$site->id);
           }
 
-          // foreach($links as $link){
-          //   $newlink = new Link;
-          //   $newlink->title = $link['title'];
-          //   $newlink->address = $link['address'];
-          //   $newlink->site_id = $siteid;
-          //   $newlink->rating = 1;
-          //   $newlink->save();
-          // }
-
         }
 
         // dd($validatedlinks);

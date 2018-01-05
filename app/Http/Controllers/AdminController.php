@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Role;
 use App\Set;
 use App\Link;
 use App\Site;
@@ -97,6 +98,18 @@ class AdminController extends Controller
         $users = User::orderBy('created_at', 'ASC')->paginate(20);
 
         return view('admin.partials.users', compact('users'));
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function viewroles()
+    {
+        $roles = Role::orderBy('created_at', 'ASC')->paginate(20);
+
+        return view('admin.partials.roles', compact('roles'));
     }
 
     /**

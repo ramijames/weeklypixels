@@ -24,6 +24,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 // Admin
 Route::get('/admin', 'AdminController@index')->name('admin');
 Route::get('/admin/users', 'AdminController@viewusers');
+Route::get('/admin/roles', 'AdminController@viewroles');
 
 // Links
 // Route::get('/links/generate', 'LinksController@generateLinks');
@@ -49,5 +50,7 @@ Route::get('/admin/sites/destroy/{site}', 'SiteController@destroy');
 Route::get('datatable/sites', 'DataTableController@getSites')->name('datatable/sites');
 
 // Users
+Route::get('/admin/user/{user}', 'UserController@show');
+Route::post('/admin/user/update/{user}', 'UserController@update');
 Route::get('/admin/users/destroy/{user}', 'UserController@destroy');
 Route::get('datatable/users', 'DataTableController@getUsers')->name('datatable/users');

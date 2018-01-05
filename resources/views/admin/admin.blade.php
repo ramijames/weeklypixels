@@ -4,6 +4,8 @@
 
 @yield('modal')
 
+@if(Auth::user()->hasRole('admin'))
+
 <div class="admin-wrapper">
   <div class="admin-nav-wrapper">
     @include('admin.partials.nav')
@@ -20,5 +22,11 @@
     @yield('admincontent')
   </div>
 </div>
+
+@else
+
+  @include('admin.partials.unauthorized')
+
+@endif
 
 @endsection
