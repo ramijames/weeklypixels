@@ -8,6 +8,7 @@ use duzun\hQuery;
 use App\Set;
 use App\Site;
 use App\Link;
+use App\LightboxLink;
 use DB;
 
 class SetController extends Controller
@@ -23,43 +24,63 @@ class SetController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * Old way to generate links (go get em all, bleh)
+     *
+     * @return \Illuminate\Http\Response
+     */
+    // public function generate()
+    // {
+    //     $sites = Site::all();
+
+    //     // first get links
+    //     foreach($sites as $site){
+    //       // Get title and href for each site in the db
+    //       // note on PHP syntax: calling another function in the same class, the other method should be static and we call it using $this
+    //       $links = $this->getNewLinks($site->id);
+    //       $validatedlinks[$site->id] = $this->validateLinks($links);
+
+    //       foreach($validatedlinks[$site->id] as $link){
+    //         // dd($link);
+    //         $this->saveLinksToDb($link,$site->id);
+    //       }
+
+    //     }
+
+    //     // Now that we've added links to the database we can
+    //     // go ahead and push the new set to the view
+    //     $links = Link::orderBy('created_at', 'DESC')->paginate(20);
+    //     return view('admin.partials.generateset', compact('links'));
+    // }
+
+    /**
+     * New way to generate links (lightbox, yay!)
      *
      * @return \Illuminate\Http\Response
      */
     public function generate()
     {
-        $sites = Site::all();
+        $lightboxlinks = LightboxLink::all();
 
-        // first get links
-        foreach($sites as $site){
-          // Get title and href for each site in the db
-          // note on PHP syntax: calling another function in the same class, the other method should be static and we call it using $this
-          $links = $this->getNewLinks($site->id);
-          $validatedlinks[$site->id] = $this->validateLinks($links);
+        $set = Set::create([
+          'user_id' => 1
+        ]);
 
-          foreach($validatedlinks[$site->id] as $link){
-            // dd($link);
-            $this->saveLinksToDb($link,$site->id);
-          }
+        $setid = $set->id;
 
+        foreach($lightboxlinks as $lightboxlink){
+          // dd();
+          $set = Set::find($setid);
+          $set->links()->attach($lightboxlink->link_id);
         }
 
-        // dd($validatedlinks);
-
-        // then validate links
-        // foreach($sites as $site){
-
-        // }
-
-        // then save to db
-
+        return redirect('/admin/sets')->with('status', 'New Set Generated.');
 
         // Now that we've added links to the database we can
         // go ahead and push the new set to the view
-        $links = Link::orderBy('created_at', 'DESC')->paginate(20);
-        return view('admin.partials.generateset', compact('links'));
+        // $links = Link::orderBy('created_at', 'DESC')->paginate(20);
+        // return view('admin.links'/*, compact('links')*/);
     }
+
 
     /**
      * Get new links from a Site
@@ -104,21 +125,6 @@ class SetController extends Controller
      */
     public static function saveLinksToDb($link,$siteid){
       try {
-        // this was for an array
-        // if(empty($link)){
-        //   return true;
-        // } else {
-        //   foreach($links as $link){
-        //     $newlink = new Link;
-        //     $newlink->title = $link['title'];
-        //     $newlink->address = $link['address'];
-        //     $newlink->site_id = $siteid;
-        //     $newlink->rating = 1;
-        //     $newlink->save();
-        //   }
-
-        //   return true;
-        // }
 
         // but we really are going to do these one by one
         if(empty($link)){
@@ -168,8 +174,6 @@ class SetController extends Controller
 
         }
 
-        // dd($validatedlinks);
-
         // good job, let's return the massaged and validated links
         return $validatedlinks;
 
@@ -193,11 +197,6 @@ class SetController extends Controller
      */
     public function store(Request $request)
     {
-        // pull the request
-        // get sets
-        // count sets
-        //
-        // dd($request['links']);
 
         // check that $request isn't empty
         if($request['links']){

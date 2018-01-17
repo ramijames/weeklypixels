@@ -12,7 +12,7 @@
     </div>
     <div class="admin-tools">
       <div class="btn-group">
-        <a href="{{ url('/') }}/admin/sets/generate" class="btn btn-primary">Generate a Set</a>
+        <a href="{{ url('/') }}/admin/sets/generate" class="btn btn-primary">Set from Lightbox</a>
       </div>
     </div>
   </div>
