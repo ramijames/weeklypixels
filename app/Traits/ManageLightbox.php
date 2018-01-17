@@ -6,16 +6,9 @@ use duzun\hQuery;
 use App\Set;
 use App\Site;
 use App\Link;
+use App\LightboxLink;
 
 trait ManageLightbox {
-
-    public function addToLightbox($linkid){
-
-
-
-      return;
-
-    }
 
     /**
      * Save these links to the db
@@ -94,6 +87,24 @@ trait ManageLightbox {
         // good job, let's return the massaged and validated links
         return $validatedlinks;
 
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function clearLightbox()
+    {
+        $lightboxlinks = LightboxLink::get();
+
+        foreach($lightboxlinks as $lightboxlink) {
+            $lightboxlink->delete();
+        }
+
+        // Return to list
+        return redirect('/admin/links')->with('status', 'Lightbox Cleared.');
     }
 
 }

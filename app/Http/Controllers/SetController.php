@@ -9,10 +9,14 @@ use App\Set;
 use App\Site;
 use App\Link;
 use App\LightboxLink;
+use App\Traits\ManageLightbox;
 use DB;
 
 class SetController extends Controller
 {
+
+    use ManageLightbox;
+
     /**
      * Display a listing of the resource.
      *
@@ -22,35 +26,6 @@ class SetController extends Controller
     {
         //
     }
-
-    /**
-     * Old way to generate links (go get em all, bleh)
-     *
-     * @return \Illuminate\Http\Response
-     */
-    // public function generate()
-    // {
-    //     $sites = Site::all();
-
-    //     // first get links
-    //     foreach($sites as $site){
-    //       // Get title and href for each site in the db
-    //       // note on PHP syntax: calling another function in the same class, the other method should be static and we call it using $this
-    //       $links = $this->getNewLinks($site->id);
-    //       $validatedlinks[$site->id] = $this->validateLinks($links);
-
-    //       foreach($validatedlinks[$site->id] as $link){
-    //         // dd($link);
-    //         $this->saveLinksToDb($link,$site->id);
-    //       }
-
-    //     }
-
-    //     // Now that we've added links to the database we can
-    //     // go ahead and push the new set to the view
-    //     $links = Link::orderBy('created_at', 'DESC')->paginate(20);
-    //     return view('admin.partials.generateset', compact('links'));
-    // }
 
     /**
      * New way to generate links (lightbox, yay!)
@@ -73,12 +48,10 @@ class SetController extends Controller
           $set->links()->attach($lightboxlink->link_id);
         }
 
-        return redirect('/admin/sets')->with('status', 'New Set Generated.');
+        // We are done with this temp set, let's clean up
+        $this->clearLightbox();
 
-        // Now that we've added links to the database we can
-        // go ahead and push the new set to the view
-        // $links = Link::orderBy('created_at', 'DESC')->paginate(20);
-        // return view('admin.links'/*, compact('links')*/);
+        return redirect('/admin/sets')->with('status', 'New Set Generated.');
     }
 
 

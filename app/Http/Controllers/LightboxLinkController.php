@@ -5,9 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Link;
 use App\LightboxLink;
+use App\Traits\ManageLightbox;
 
 class LightboxLinkController extends Controller
 {
+
+    use ManageLightbox;
+
     /**
      * Display a listing of the resource.
      *
@@ -113,11 +117,7 @@ class LightboxLinkController extends Controller
      */
     public function clear()
     {
-        $lightboxlinks = LightboxLink::get();
-
-        foreach($lightboxlinks as $lightboxlink) {
-            $lightboxlink->delete();
-        }
+        $this->clearLightbox();
 
         // Return to list
         return redirect('/admin/links')->with('status', 'Lightbox Cleared.');
