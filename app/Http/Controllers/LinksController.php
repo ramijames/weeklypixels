@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use duzun\hQuery;
 use App\Site;
 use App\Link;
+use App\LightboxLink;
 use App\Set;
 
 class LinksController extends Controller

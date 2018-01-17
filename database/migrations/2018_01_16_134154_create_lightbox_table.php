@@ -13,7 +13,7 @@ class CreateLightboxTable extends Migration
      */
     public function up()
     {
-        Schema::create('lightbox', function (Blueprint $table) {
+        Schema::create('lightbox_links', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('link_id');
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateLightboxTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lightbox');
+        Schema::dropIfExists('lightbox_links');
     }
 }

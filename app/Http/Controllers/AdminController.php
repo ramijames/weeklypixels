@@ -7,6 +7,7 @@ use App\User;
 use App\Role;
 use App\Set;
 use App\Link;
+use App\LightboxLink;
 use App\Site;
 use Datatables;
 
@@ -76,7 +77,9 @@ class AdminController extends Controller
         ->datasets($users_stats_dataset)
         ->options([]);
 
-        return view('admin.partials.dashboard', compact('users_stats'));
+        $lightboxlinks = LightboxLink::all();
+
+        return view('admin.partials.dashboard', compact('users_stats','lightboxlinks'));
     }
 
     /**
@@ -153,8 +156,9 @@ class AdminController extends Controller
     public function viewusers()
     {
         $users = User::orderBy('created_at', 'ASC')->paginate(20);
+        $lightboxlinks = LightboxLink::all();
 
-        return view('admin.partials.users', compact('users'));
+        return view('admin.partials.users', compact('users','lightboxlinks'));
     }
 
     /**
@@ -165,8 +169,9 @@ class AdminController extends Controller
     public function viewroles()
     {
         $roles = Role::orderBy('created_at', 'ASC')->paginate(20);
+        $lightboxlinks = LightboxLink::all();
 
-        return view('admin.partials.roles', compact('roles'));
+        return view('admin.partials.roles', compact('roles','lightboxlinks'));
     }
 
     /**
@@ -177,8 +182,9 @@ class AdminController extends Controller
     public function viewsites()
     {
         $sites = Site::orderBy('created_at', 'DESC')->paginate(5);
+        $lightboxlinks = LightboxLink::all();
 
-        return view('admin.partials.sites', compact('sites'));
+        return view('admin.partials.sites', compact('sites','lightboxlinks'));
     }
 
     /**
@@ -189,8 +195,9 @@ class AdminController extends Controller
     public function viewsets()
     {
         $sets = Set::orderBy('created_at', 'DESC')->paginate(5);
+        $lightboxlinks = LightboxLink::all();
 
-        return view('admin.partials.sets', compact('sets'));
+        return view('admin.partials.sets', compact('sets','lightboxlinks'));
     }
 
     /**
@@ -201,8 +208,9 @@ class AdminController extends Controller
     public function viewlinks()
     {
         $links = Link::orderBy('id', 'ASC')->paginate(50);
+        $lightboxlinks = LightboxLink::all();
 
-        return view('admin.partials.links', compact('links'));
+        return view('admin.partials.links', compact('links','lightboxlinks'));
     }
 
 }

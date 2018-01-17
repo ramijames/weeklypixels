@@ -39,8 +39,8 @@ a:hover {
 .btn {
   min-width: 34px;
   font-family: 'Helvetica', sans-serif;
-  border-radius:0px !important;
-  border: 0px solid #111111;
+  border-radius: 3px;
+  border: 1px solid #ddd;
   transition:all .08s linear;
 }
 
@@ -53,17 +53,34 @@ a:hover {
 
 .btn-primary {
     color: #ffffff;
-    background-color: #2c3e50;
-    border-color: #2c3e50;
+    background-color: #517293;
+    border-color: #3F5972;
+    background-image: linear-gradient(-180deg, #517293 0%, #2C3E50 100%);
+    border: 1px solid #3F5972;
+    border-radius: 3px;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 1px 2px rgba(0,0,0,0.12);
 }
 
 .btn-primary.active,
 .btn-primary:active,
 .btn-primary:hover,
 .open > .btn-primary.dropdown-toggle {
-    color: #fff;
-    background-color: #34495e;
-    border-color: #34495e;
+    color: #ffffff;
+    background-color: #517293;
+    border-radius: 3px;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 1px 2px rgba(0,0,0,0.42);
+    background-image: -webkit-linear-gradient(#5E86AF 0%, #395169 98%);
+    background-image: -o-linear-gradient(#5E86AF 0%, #395169 98%);
+    background-image: linear-gradient(#5E86AF 0%, #395169 98%);
+}
+
+.btn-default.active,
+.btn-default:active,
+.btn-default:hover,
+.open > .btn-default.dropdown-toggle {
+  border-color:rgb(221, 221, 221);
+  background-color: #ffffff;
+  color:#111111;
 }
 
 .form-control {
@@ -117,6 +134,10 @@ table.dataTable tbody th, table.dataTable tbody td {
 
 table.dataTable tbody th {
     border-bottom: 2px solid #2c3e50;
+}
+
+table.dataTable td:last-child {
+  text-align: right;
 }
 
 .nav {
@@ -357,14 +378,16 @@ table.dataTable tbody th {
 /* admin */
 
 .alert {
-    padding: 10px;
     margin: 10px;
-    border: 1px solid transparent;
-    border-top-color: transparent;
-    border-right-color: transparent;
-    border-bottom-color: transparent;
-    border-left-color: transparent;
     border-radius: 4px;
+    border-radius: 4px;
+    border: 1px solid #dedec4;
+    box-shadow: inset 0 -2px 2px rgba(0,0,0,0.07);
+    background: #ffffe0;
+}
+
+.close {
+    font-size: 16px;
 }
 
 .admin-wrapper {
@@ -379,6 +402,7 @@ table.dataTable tbody th {
   vertical-align: top;
   background-color: #ffffff !important;
   border-right: 1px solid #ddd;
+  border-left: 1px solid #ddd;
 }
 
 .admin-content-wrapper {
@@ -386,24 +410,38 @@ table.dataTable tbody th {
   vertical-align: top;
 }
 
+.admin-content-wrapper .alert {
+  position: fixed;
+  bottom: 20px;
+  left: 0;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+  z-index: 10000;
+}
+
 .admin-content-lightbox {
-  display:table-cell;
+  display: table-cell;
   background-color: #ffffff;
-  border-left:1px solid #ddd;
+  border-left: 1px solid #ddd;
   vertical-align: top;
   width: 320px;
+  border-right: 1px solid #ddd;
 }
 
 .admin-content-lightbox-header {
-  padding:0 15px;
+  padding:0;
   background-color: #ffffff;
   border-bottom: 1px solid #ddd;
   margin: 0;
-  height: 61.4px;
-  line-height: 61.4px;
   font-size:16px;
   color:#111111;
   font-weight: bold;
+}
+
+.admin-content-lightbox-header span.lightbox-title {
+  height: 61.4px;
+  line-height: 61.4px;
+  padding:0 0 0 15px;
+  margin:0;
 }
 
 .admin-content-lightbox-content {
@@ -421,12 +459,21 @@ table.dataTable tbody th {
     .admin-content-lightbox-content ol li.lightboxlink-single {
       padding: 0;
       margin: 0;
+      margin-bottom: 0px;
       list-style: none;
       display: block;
       border-radius: 4px;
-      border:1px solid #ddd;
-      margin-bottom:10px;
+      border: 1px solid #dedec4;
+      margin-bottom: 10px;
+      box-shadow: inset 0 -2px 2px rgba(0,0,0,0.07);
+      background: #ffffe0;
+      transition:all 0.18s linear;
     }
+
+      .admin-content-lightbox-content ol li.lightboxlink-single:hover {
+        box-shadow: inset 0 -2px 2px rgba(0,0,0,0.07), 0 4px 12px rgba(0,0,0,0.12);
+        background: lightyellow;
+      }
 
     .admin-content-lightbox-content ol li .lightboxlink-single-content {
       padding: 10px;
@@ -458,7 +505,8 @@ table.dataTable tbody th {
   background-color:#ffffff;
   border-bottom:1px solid #ddd;
   margin:0;
-  overflow: auto;
+  overflow: hidden;
+  max-height: 62px;
 }
 
 .admin-content-section {

@@ -108,11 +108,17 @@
         </div>
     </div>
 
-
     <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('js/infinite-scroll.pkgd.min.js') }}"></script>
     <script src="https://use.fontawesome.com/bcacaab594.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
 
     @stack('scripts')
 

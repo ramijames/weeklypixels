@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Link;
+use App\LightboxLink;
 
 class LightboxLinkController extends Controller
 {
@@ -25,6 +26,23 @@ class LightboxLinkController extends Controller
     public function create()
     {
         //
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function add($linkid)
+    {
+        $lightboxlink = new LightboxLink;
+        $lightboxlink->link_id = $linkid;
+        $lightboxlink->save();
+
+        // dd($lightboxlink);
+
+        // Return to list
+        return redirect('/admin/links')->with('status', 'Lightbox Link Added.');
     }
 
     /**
