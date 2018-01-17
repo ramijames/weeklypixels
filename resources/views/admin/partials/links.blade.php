@@ -6,7 +6,7 @@
 
   <div class="admin-toolbar">
     <div class="admin-sub-nav" role="complementary">
-      <h4>Links</h4>
+
     </div>
     <div class="admin-tools">
       <div class="btn-group">
