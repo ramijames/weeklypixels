@@ -108,23 +108,13 @@
         </div>
     </div>
 
+
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('js/infinite-scroll.pkgd.min.js') }}"></script>
-
     <script src="https://use.fontawesome.com/bcacaab594.js"></script>
-
-    <script type="text/javascript">
-
-        $(document).ready(function(){
-            $('.infinite-scroll ul.pagination').hide();
-            $('[data-toggle="tooltip"]').tooltip();
-        });
-    </script>
 
     @stack('scripts')
 
-
-    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

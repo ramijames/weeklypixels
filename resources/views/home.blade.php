@@ -70,3 +70,12 @@
 </div>
 
 @endsection
+
+
+@push('scripts')
+  <script type="text/javascript">
+    $(document).ready(function(){
+        $('.infinite-scroll ul.pagination').hide();
+    });
+  </script>
+@endpush

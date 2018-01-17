@@ -8,6 +8,7 @@
         "php": ">=7.0.0",
         "duzun/hquery": "^1.7",
         "fideloper/proxy": "~3.3",
+        "fx3costa/laravelchartjs": "^2.3",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
         "yajra/laravel-datatables-oracle": "^8.3",

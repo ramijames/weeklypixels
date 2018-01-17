@@ -6,9 +6,7 @@
 
   <div class="admin-toolbar">
     <div class="admin-sub-nav" role="complementary">
-      <ul class="nav nav-pills">
-
-      </ul>
+      <h4>Links</h4>
     </div>
     <div class="admin-tools">
       <div class="btn-group">
@@ -18,39 +16,43 @@
   </div>
 
 
-  <div class="col-md-12" role="main">
-    <table class="table table-condensed table-hover">
+  <div class="admin-content-section" role="main">
+    <table class="table table-condensed table-hover datatable links">
       <thead>
         <tr>
           <th>ID</th>
-          <th>Site</th>
-          <th>Title/Link</th>
+          <th>Title</th>
           <th>Generated</th>
           <th>Actions</th>
         </tr>
       </thead>
-      <tbody>
-        @foreach($links as $link)
-          <tr>
-            <td>{{ $link->id }}</td>
-            <td><span class="tag label label-info">{{ $link->sites->title }}</span></td>
-            <td><strong><a href="{{ $link->address }}">{{ $link->title }}</a></strong></td>
-            <td>{{ $link->created_at }}</td>
-            <td>
-              <a class="btn btn-default" href="{{ url('/') }}/admin/links/destroy/{{ $link->id }}"><i class="fa fa-trash" aria-hidden="true"></i></a>
-            </td>
-          </tr>
-        @endforeach
-
-      </tbody>
     </table>
-
-    <div class="floating-action">
-      {!! $links->render() !!}
-    </div>
 
   </div>
 
 </div>
+
+@push('scripts')
+  <script>
+    $(document).ready(function(){
+      $('.datatable').DataTable({
+            processing: true,
+            "pageLength": 50,
+            "bAutoWidth": false,
+            // scrollY:        '72vh',
+            // scrollCollapse: true,
+            // paging:         false,
+            serverSide: false,
+            ajax: '{{ route('datatables/getlinks') }}',
+            columns: [
+                {data: 'id', name: 'id'},
+                {data: 'title', name: 'title'},
+                {data: 'created_at', name: 'generated'},
+                {data: 'action', name: 'action', orderable: false, searchable: false}
+            ]
+        });
+    });
+  </script>
+@endpush
 
 @endsection

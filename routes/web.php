@@ -29,10 +29,13 @@ Route::get('/admin/roles', 'AdminController@viewroles');
 // Links
 // Route::get('/links/generate', 'LinksController@generateLinks');
 // Route::post('/link/create', 'LinksController@create');
-// Route::get('datatable/links', 'DataTableController@getLinks')->name('datatable/links');
+Route::get('datatables/getlinks', 'DataTableController@getLinks')->name('datatables/getlinks');
 Route::get('/admin/links', 'AdminController@viewlinks');
 Route::post('/admin/links/store', 'LinksController@store');
 Route::get('/admin/links/destroy/{link}', 'LinksController@destroy');
+
+// LightboxLinks
+Route::get('/admin/lightboxlinks/destroy/{lightboxlink}', 'LightboxLinksController@destroy');
 
 //Sets
 // Route::get('/sets/', 'SetController@create');
@@ -47,6 +50,7 @@ Route::get('datatable/sets', 'DataTableController@getSets')->name('datatable/set
 Route::get('/admin/sites', 'AdminController@viewsites');
 Route::post('/admin/sites/store', 'SiteController@store');
 Route::get('/admin/sites/destroy/{site}', 'SiteController@destroy');
+Route::get('/admin/sites/get/{site}', 'SiteController@getlinks');
 Route::get('datatable/sites', 'DataTableController@getSites')->name('datatable/sites');
 
 // Users

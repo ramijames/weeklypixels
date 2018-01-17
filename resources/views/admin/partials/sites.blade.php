@@ -96,6 +96,7 @@
             <td>{{ $site->weight }}</td>
             <td>
               <a class="btn btn-default" href="{{ url('/') }}/admin/sites/destroy/{{ $site->id }}"><i class="fa fa-trash" aria-hidden="true"></i></a>
+              <a class="btn btn-default" href="{{ url('/') }}/admin/sites/get/{{ $site->id }}">Get Links</a>
             </td>
           </tr>
         @endforeach

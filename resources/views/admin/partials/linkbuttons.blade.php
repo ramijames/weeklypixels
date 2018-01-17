@@ -1,0 +1,3 @@
+<a href="{{ $link->address }}" class="btn btn-sm btn-default pull-left" target="_blank"><i class="fa fa-external-link-square" aria-hidden="true"></i></a>
+<a href="{{ url('/') }}/admin/links/destroy/{{ $link->id }}" class="btn btn-sm btn-default pull-left"><i class="fa fa-trash" aria-hidden="true"></i></a>
+<a href="{{ url('/') }}/admin/lightbox/add/{{ $link->id }}" class="btn btn-sm btn-primary pull-right"><i class="fa fa-plus" aria-hidden="true"></i></a>

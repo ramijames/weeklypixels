@@ -19,7 +19,64 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.partials.dashboard'/*, compact('links','sites')*/);
+        $users = User::all();
+
+        $users_stats_dataset = array();
+
+        // [
+        //     [
+        //         "label" => "My First dataset",
+        //         'backgroundColor' => "rgba(38, 185, 154, 0.31)",
+        //         'borderColor' => "rgba(38, 185, 154, 0.7)",
+        //         "pointBorderColor" => "rgba(38, 185, 154, 0.7)",
+        //         "pointBackgroundColor" => "rgba(38, 185, 154, 0.7)",
+        //         "pointHoverBackgroundColor" => "#fff",
+        //         "pointHoverBorderColor" => "rgba(220,220,220,1)",
+        //         'data' => [65, 59, 80, 81, 56, 55, 40],
+        //     ],
+        //     [
+        //         "label" => "My Second dataset",
+        //         'backgroundColor' => "rgba(38, 185, 154, 0.31)",
+        //         'borderColor' => "rgba(38, 185, 154, 0.7)",
+        //         "pointBorderColor" => "rgba(38, 185, 154, 0.7)",
+        //         "pointBackgroundColor" => "rgba(38, 185, 154, 0.7)",
+        //         "pointHoverBackgroundColor" => "#fff",
+        //         "pointHoverBorderColor" => "rgba(220,220,220,1)",
+        //         'data' => [12, 33, 44, 44, 55, 23, 40],
+        //     ]
+        // ]
+
+        $num = 0;
+
+        foreach($users as $user){
+            $users_stats_dataset[$num]['label'] = $user->name;
+            // $users_stats_dataset[$num]['backgroundColor'] = "rgba(38, 185, 154, 0.31)";
+            // $users_stats_dataset[$num]['pointBorderColor'] = "rgba(38, 185, 154, 0.7)";
+            // $users_stats_dataset[$num]['pointBackgroundColor'] = "rgba(38, 185, 154, 0.31)";
+            // $users_stats_dataset[$num]['borderColor'] = "rgba(38, 185, 154, 0.7)";
+            // $users_stats_dataset[$num]['pointHoverBackgroundColor'] = "rgba(38, 185, 154, 0.31)";
+            // $users_stats_dataset[$num]['pointHoverBorderColor'] = "rgba(38, 185, 154, 0.7)";
+            $users_stats_dataset[$num]['data'] = [1];
+            $num++;
+        }
+
+        for($m=1; $m<=12; ++$m){
+            $months_array[] = date('F', mktime(0, 0, 0, $m, 1));
+        }
+
+        $months = "['" . implode("', '", array_values($months_array)) . "']";
+
+        // dd($months);
+
+        $users_stats = app()->chartjs
+        ->name('lineChartTest')
+        ->type('line')
+        ->size(['width' => 400, 'height' => 200])
+        ->labels(['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'])
+        ->datasets($users_stats_dataset)
+        ->options([]);
+
+        return view('admin.partials.dashboard', compact('users_stats'));
     }
 
     /**
@@ -143,7 +200,7 @@ class AdminController extends Controller
      */
     public function viewlinks()
     {
-        $links = Link::orderBy('created_at', 'DESC')->paginate(50);
+        $links = Link::orderBy('id', 'ASC')->paginate(50);
 
         return view('admin.partials.links', compact('links'));
     }

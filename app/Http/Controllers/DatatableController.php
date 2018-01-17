@@ -14,6 +14,11 @@ use App\Set;
 class DataTableController extends Controller
 {
 
+    public function datatable()
+    {
+        return view('datatable');
+    }
+
     public function getUsers()
     {
         return \DataTables::of(User::query())->make(true);
@@ -31,6 +36,9 @@ class DataTableController extends Controller
 
     public function getLinks()
     {
-        return \DataTables::of(Link::query())->make(true);
+
+        return \DataTables::of(Link::query())
+            ->addColumn('action', function ($link) { return view('admin.partials.linkbuttons', compact('link'))->render();})
+            ->make(true);
     }
 }
