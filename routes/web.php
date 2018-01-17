@@ -36,6 +36,7 @@ Route::get('/admin/links/destroy/{link}', 'LinksController@destroy');
 
 // LightboxLinks
 Route::get('/admin/lightboxlinks/destroy/{lightboxlink}', 'LightboxLinkController@destroy');
+Route::get('/admin/lightboxlinks/clear/', 'LightboxLinkController@clear');
 Route::get('/admin/lightboxlinks/add/{lightboxlink}', 'LightboxLinkController@add');
 
 //Sets

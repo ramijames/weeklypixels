@@ -77,9 +77,7 @@ class AdminController extends Controller
         ->datasets($users_stats_dataset)
         ->options([]);
 
-        $lightboxlinks = LightboxLink::all();
-
-        return view('admin.partials.dashboard', compact('users_stats','lightboxlinks'));
+        return view('admin.partials.dashboard', compact('users_stats'));
     }
 
     /**
@@ -156,9 +154,8 @@ class AdminController extends Controller
     public function viewusers()
     {
         $users = User::orderBy('created_at', 'ASC')->paginate(20);
-        $lightboxlinks = LightboxLink::all();
 
-        return view('admin.partials.users', compact('users','lightboxlinks'));
+        return view('admin.partials.users', compact('users'));
     }
 
     /**
@@ -169,9 +166,8 @@ class AdminController extends Controller
     public function viewroles()
     {
         $roles = Role::orderBy('created_at', 'ASC')->paginate(20);
-        $lightboxlinks = LightboxLink::all();
 
-        return view('admin.partials.roles', compact('roles','lightboxlinks'));
+        return view('admin.partials.roles', compact('roles'));
     }
 
     /**
@@ -182,9 +178,8 @@ class AdminController extends Controller
     public function viewsites()
     {
         $sites = Site::orderBy('created_at', 'DESC')->paginate(5);
-        $lightboxlinks = LightboxLink::all();
 
-        return view('admin.partials.sites', compact('sites','lightboxlinks'));
+        return view('admin.partials.sites', compact('sites'));
     }
 
     /**

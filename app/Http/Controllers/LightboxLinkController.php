@@ -104,4 +104,22 @@ class LightboxLinkController extends Controller
         // Return to list
         return redirect('/admin/links')->with('status', 'Lightbox Link Deleted.');
     }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function clear()
+    {
+        $lightboxlinks = LightboxLink::get();
+
+        foreach($lightboxlinks as $lightboxlink) {
+            $lightboxlink->delete();
+        }
+
+        // Return to list
+        return redirect('/admin/links')->with('status', 'Lightbox Cleared.');
+    }
 }

@@ -25,15 +25,18 @@
     @yield('admincontent')
   </div>
 
+  @if(Request::is('admin/links') || Request::is('admin/sets'))
+
   <div class="admin-content-lightbox">
     <div class="admin-content-lightbox-header">
       <span class="lightbox-title">Set Lightbox</span>
       <div class="admin-tools">
         <div class="btn-group">
-          <a href="http://localhost/laravel/weeklypixels/public/admin/sets/generate" class="btn btn-default">Clear</a>
+          <a href="{{ url('/') }}/admin/lightboxlinks/clear/" class="btn btn-default">Clear</a>
         </div>
       </div>
     </div>
+
     <div class="admin-content-lightbox-content">
       <ol>
 
@@ -41,20 +44,22 @@
 
         <li class="lightboxlink-single">
           <a href="" class="lightboxlink-single-content">
-            <span class="link-label">Link {{ $lightboxlink->links->id }}</span>
-            <br>
             {{ $lightboxlink->links->title }}
           </a>
           <div class="lightboxlink-single-footer">
-            <a href="{{ url('/') }}/admin/lightboxlinks/destroy/" class=""><i class="fa fa-trash" aria-hidden="true"></i></a>
+            <a href="{{ url('/') }}/admin/lightboxlinks/destroy/{{ $lightboxlink->id }}" class=""><i class="fa fa-trash" aria-hidden="true"></i></a>
           </div>
         </li>
 
       @endforeach
 
-    </ol>
+      </ol>
     </div>
+
   </div>
+
+  @endif
+
 </div>
 
 @else
