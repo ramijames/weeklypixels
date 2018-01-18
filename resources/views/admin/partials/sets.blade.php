@@ -18,7 +18,7 @@
   </div>
 
 
-  <div class="col-md-12" role="main">
+  <div class="admin-content-section" role="main">
     <table class="table table-condensed tabl-hover">
       <thead>
         <tr>

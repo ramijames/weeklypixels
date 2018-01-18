@@ -18,7 +18,7 @@
     <link href="http://cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css" rel="stylesheet">
 
 </head>
-<body>
+<body class=@if(Request::is('/')) home @endif>
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container-fluid">
