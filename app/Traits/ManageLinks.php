@@ -83,6 +83,8 @@ trait ManageLinks {
           $newlink->title = $link['title'];
           $newlink->address = $link['address'];
           $newlink->site_id = $siteid;
+          $newlink->user_id = 1; // TODO - associate with user
+          $newlink->published = 0; // Only set to publish after creating a set
           $newlink->rating = 1;
           $newlink->save();
 

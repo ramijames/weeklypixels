@@ -23,6 +23,7 @@
           <th>ID</th>
           <th>Title</th>
           <th>Generated</th>
+          <th>Published</th>
           <th>Actions</th>
         </tr>
       </thead>
@@ -48,6 +49,7 @@
                 {data: 'id', name: 'id'},
                 {data: 'title', name: 'title'},
                 {data: 'created_at', name: 'generated'},
+                {data: 'published', name: 'published'},
                 {data: 'action', name: 'action', orderable: false, searchable: false}
             ]
         });

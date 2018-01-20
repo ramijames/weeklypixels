@@ -20,6 +20,10 @@ class User extends Authenticatable
         'name', 'email', 'password', 'role'
     ];
 
+    public function links(){
+      return $this->hasMany(Link::class);
+    }
+
     /**
      * The attributes that should be hidden for arrays.
      *
